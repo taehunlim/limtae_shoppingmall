@@ -75,12 +75,58 @@ router.post('/register', (req, res) => {
 
 });
 
+// @route   POST http://localhost:5000/auth/activation
+// @desc    Activation Account from confirm email
+// @access  PRIVATE
+router.post('/activation', (req, res) => {
+    const { token } = req.body;
+
+    if(token) {
+        jwt.verify(token, process.env.JWT_ACCOUNT_ACTIVATION, (err, decoded) => {
+            if(err) {
+                return res.status(401).json({
+                    errors : "Expired Link, sign up again"
+                });
+            }
+            else {
+                const {name, email, password} = jwt.decode(token);
+
+                const newUser = new userModel({
+                    name, email,
+                    hashed_password : password
+                })
+
+                newUser
+                    .save((err, user) => {
+                        if(err) {
+                            return res.status(401).json({
+                                errors : err
+                            });
+                        }
+                        else {
+                            res.status(200).json({
+                                success : true,
+                                message : 'SignUp Success',
+                                userInfo : user
+                            })
+                        }
+                    });
+
+
+            }
+        })
+    }
+});
+
+
+
 // @route   POST http://localhost:5000/auth/login
 // @desc    logged in user / return jwt
 // @access  PUBLIC
 router.post('/login', (req, res) => {
 
 });
+
 
 
 
