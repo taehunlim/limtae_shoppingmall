@@ -5,10 +5,9 @@ const bodyparser = require('body-parser');
 const dotEnv = require('dotenv');
 dotEnv.config();
 
-
-
 const app = express();
 
+const authRouter = require('./routes/auth.user');
 
 
 // database
@@ -21,12 +20,21 @@ require('./config/database');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended : false}));
 
+
 if (process.env.NODE_ENV === 'development') {
     app.use(cors({
         origin : process.env.CLIENT_URL
     }))
     app.use(morgan('dev'))
 }
+
+//routing
+app.use('/auth', authRouter);
+
+
+
+
+
 
 //err handling
 app.use((req, res, next) => {

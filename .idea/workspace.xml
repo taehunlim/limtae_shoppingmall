@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/auth.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597039705480</updated>
       <workItem from="1597039707360" duration="1540000" />
+      <workItem from="1597041314104" duration="962000" />
     </task>
     <servers />
   </component>
@@ -81,6 +81,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -90,5 +91,9 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="584" y="308" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1597040534727" />
+    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup" timestamp="1597041697387">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1597041697387" />
   </component>
 </project>
