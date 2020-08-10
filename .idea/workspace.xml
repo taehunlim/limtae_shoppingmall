@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/auth.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/auth.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597039705480</updated>
       <workItem from="1597039707360" duration="1540000" />
-      <workItem from="1597041314104" duration="3991000" />
+      <workItem from="1597041314104" duration="5034000" />
     </task>
     <servers />
   </component>

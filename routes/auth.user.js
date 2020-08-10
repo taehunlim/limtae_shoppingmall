@@ -125,6 +125,40 @@ router.post('/activation', (req, res) => {
 // @access  PUBLIC
 router.post('/login', (req, res) => {
 
+    // 이메일 유무 체크 -> password 검증 -> login(return token)
+
+    const { email, password } = req.body;
+
+    userModel
+        .findOne({email})
+        .exec((err, user) => {
+            if(err || !user) {
+                return res.status(400).json({
+                    errors : "The email dose not exist. Please Sign up"
+                });
+            }
+            else {
+                user.comparePassword(password, (err, isMatch) => {
+                    if(err || isMatch === false) {
+                        return res.status(400).json({
+                            errors : "password dose not match"
+                        })
+                    }
+                    else {
+                        const token = jwt.sign(
+                            { _id : user._id },
+                            process.env.JWT_SECRET,
+                            { expiresIn: '7d' }
+                        );
+                        res.status(200).json({
+                            token,
+                            user
+                        })
+                    }
+                })
+            }
+        })
+
 });
 
 
