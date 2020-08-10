@@ -9,7 +9,7 @@ sgMail.setApiKey(process.env.MAIL_KEY)
 const userModel = require('../models/auth.model');
 
 const {
-    validSignUp, validLogin
+    validSignUp, validLogin, validFindPassword
 } = require('../config/validation');
 
 
@@ -171,6 +171,65 @@ router.post('/login', validLogin, (req, res) => {
 });
 
 
+// @route   PUT http://localhost:5000/auth/forgotpassword
+// @desc    forgot Password
+// @access  PUBLIC
+router.put('/forgotpassword', validFindPassword, (req, res) => {
+
+    const { email } = req.body;
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()) {
+        return res.status(422).json(errors);
+    } else {
+        userModel
+            .findOne({email}, (err, user) => {
+                const token = jwt.sign(
+                    { _id : user._id },
+                    process.env.JWT_RESET_PASSWORD,
+                    { expiresIn: "20m" }
+                );
+
+                const emailData = {
+                    from: process.env.EMAIL_FROM,
+                    to: email,
+                    subject: `Password Reset link`,
+                    html: `
+                    <h1>Please use the following link to reset your password</h1>
+                    <p>${process.env.CLIENT_URL}/users/password/reset/${token}</p>
+                    <hr />
+                    <p>This email may contain sensetive information</p>
+                    <p>${process.env.CLIENT_URL}</p>
+                    `
+                };
+
+                return user.updateOne({ resetPasswordLink: token }, (err, success) => {
+                    if(err) {
+                        return res.status(400).json({
+                            error : 'Database connection error on user password forgot request'
+                        });
+                    }
+                    else {
+                        sgMail
+                            .send(emailData)
+                            .then(() => {
+                                res.status(200).json({
+                                    message : `Email has been sent to ${email}. Follow the instruction to activate your account`
+                                })
+                            })
+                            .catch(err => {
+                                res.status(404).json({
+                                    msg : err.message
+                                });
+                            })
+                    }
+                })
+
+
+            })
+    }
+
+})
 
 
 

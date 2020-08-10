@@ -29,3 +29,9 @@ exports.validLogin = [
         .withMessage('password must contain a number')
 
 ]
+
+exports.validFindPassword = [
+    check('email')
+        .isEmail()
+        .withMessage('Must be valid email address')
+]
