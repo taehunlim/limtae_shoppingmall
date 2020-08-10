@@ -4,13 +4,23 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const sgMail = require('@sendgrid/mail');
+const _ = require('lodash');
 sgMail.setApiKey(process.env.MAIL_KEY)
 
 const userModel = require('../models/auth.model');
 
 const {
-    validSignUp, validLogin, validFindPassword
+    validSignUp, validLogin, forgotPasswordValidator, resetPasswordValidator
 } = require('../config/validation');
+
+
+const tokenGenerator = (payload, secret, time) => {
+    return jwt.sign(
+        payload,
+        secret,
+        { expiresIn: time }
+    )
+}
 
 
 
@@ -38,10 +48,16 @@ router.post('/register', validSignUp, (req, res) => {
                 }
                 else {
                     // 인증용 token 발행
-                    const token = jwt.sign(
-                        { name, email, password },
+                    // const token = jwt.sign(
+                    //     { name, email, password },
+                    //     process.env.JWT_ACCOUNT_ACTIVATION,
+                    //     { expiresIn : '10m' }
+                    // );
+
+                    const token = tokenGenerator(
+                        {name, email, password},
                         process.env.JWT_ACCOUNT_ACTIVATION,
-                        { expiresIn : '10m' }
+                        '10m'
                     );
 
                     console.log(token);
@@ -154,14 +170,14 @@ router.post('/login', validLogin, (req, res) => {
                             })
                         }
                         else {
-                            const token = jwt.sign(
-                                { _id : user._id },
-                                process.env.JWT_SECRET,
-                                { expiresIn: '7d' }
-                            );
+
                             res.status(200).json({
-                                token,
-                                user
+                                user,
+                                token: tokenGenerator(
+                                    { _id : user._id },
+                                    process.env.JWT_SECRET,
+                                    "7d"
+                                ),
                             })
                         }
                     })
@@ -174,7 +190,7 @@ router.post('/login', validLogin, (req, res) => {
 // @route   PUT http://localhost:5000/auth/forgotpassword
 // @desc    forgot Password
 // @access  PUBLIC
-router.put('/forgotpassword', validFindPassword, (req, res) => {
+router.put('/forgotpassword', forgotPasswordValidator, (req, res) => {
 
     const { email } = req.body;
     const errors = validationResult(req);
@@ -184,11 +200,11 @@ router.put('/forgotpassword', validFindPassword, (req, res) => {
     } else {
         userModel
             .findOne({email}, (err, user) => {
-                const token = jwt.sign(
+                const token = tokenGenerator(
                     { _id : user._id },
                     process.env.JWT_RESET_PASSWORD,
-                    { expiresIn: "20m" }
-                );
+                    "10m"
+                )
 
                 const emailData = {
                     from: process.env.EMAIL_FROM,
@@ -231,6 +247,60 @@ router.put('/forgotpassword', validFindPassword, (req, res) => {
 
 })
 
+
+// @route   PUT http://localhost:5000/auth/resetpassword
+// @desc    Reset Password
+// @access  PRIVATE
+router.put('/resetpassword', resetPasswordValidator, (req, res) => {
+    const { resetPasswordLink, newPassword } = req.body;
+
+    const errors = validationResult(req);
+
+    if( !errors.isEmpty()) {
+        return res.status(422).json(errors)
+    }
+    else {
+        if(resetPasswordLink) {
+            jwt.verify(resetPasswordLink, process.env.JWT_RESET_PASSWORD, (err, decoded) => {
+                if(err) {
+                    return res.status(400).json({
+                        error : 'Expired link. try again'
+                    })
+                }
+                else {
+                    userModel
+                        .findOne({resetPasswordLink}, (err, user) => {
+                            if(err || !user) {
+                                return res.status(400).json({
+                                    error : ' something went wrong. try later'
+                                })
+                            }
+                            const updateFields = {
+                                hashed_password: newPassword,
+                                resetPasswordLink: ''
+                            };
+                            user = _.extend(user, updateFields) //user 에 updateFields 를 밀어 넣는다
+
+                            user
+                                .save((err, result) => {
+                                    if(err) {
+                                        return res.status(400).json({
+                                            error : 'Error resetting user password'
+                                        })
+                                    }
+                                    else {
+                                        res.status(200).json({
+                                            message : 'great! now you can login with your new password'
+                                        })
+                                    }
+                                })
+
+                        })
+                }
+            })
+        }
+    }
+});
 
 
 module.exports = router;
