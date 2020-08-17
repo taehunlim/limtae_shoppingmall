@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import authSvg from '../assets/auth.svg'
 import axios from 'axios';
-import {ToastContainer} from 'react-toastify'
+import {ToastContainer, toast} from 'react-toastify'
 import { Link, Redirect } from 'react-router-dom';
 
 const Register = () => {
@@ -16,9 +16,24 @@ const Register = () => {
 
     const { name, email, password1, password2, textChange } = formData;
 
-    const handleChange = text => e => {}
+    const handleChange = text => e => {
+        setFormData({ ...formData, [text]: e.target.value})
+    }
 
-    const handleSubmit = e => {}
+    const handleSubmit = e => {
+        e.preventDefault();
+        if( name && email && password1 ) {
+            if(password1 === password2) {
+
+            }
+            else {
+                toast.error('password do not matches')
+            }
+        }
+        else {
+            toast.error('Please fill all fields')
+        }
+    }
 
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">

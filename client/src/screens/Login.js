@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {ToastContainer} from "react-toastify";
+import {ToastContainer, toast} from "react-toastify";
+import {Link} from 'react-router-dom'
 import loginSvg from '../assets/login.svg'
 
 const Login = () => {
@@ -13,9 +14,19 @@ const Login = () => {
 
     const {email, password, forgotPassword, textChange} = formData
 
-    const handleChange = text => e => {};
+    const handleChange = text => e => {
+        setFromData({...formData, [text]: e.target.value})
+    };
 
-    const handleSubmit = e => {};
+    const handleSubmit = e => {
+        e.preventDefault();
+        if( email && password ) {
+
+        }
+        else {
+            toast.error('Please fill all fields')
+        }
+    };
 
 
     return (
@@ -47,13 +58,13 @@ const Login = () => {
                                     <i className="fab fa-facebook-square 1x w-6 -ml-2"/>
                                     <span className="ml-3">Sign in with Facebook</span>
                                 </button>
-                                <button
-                                    type='submit'
-                                    className='mt-5 tracking-wide font-semibold bg-gray-300 text-black w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
+                                <Link
+                                    to='/register'
+                                    className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-gray-300 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
                                 >
                                     <i className="fas fa-user-plus fa 1x w-6 -ml-2"/>
                                     <span className="ml-3">Sign up</span>
-                                </button>
+                                </Link>
                             </div>
                         </form>
 
@@ -88,14 +99,12 @@ const Login = () => {
                                     <span className="ml-3">{textChange}</span>
                                 </button>
                                 <div>
-                                    <a
-                                        className=""
-                                        href='/forgotpassword'
-                                        target='_self'
+                                    <Link
+                                        to='/forgotpassword'
                                     >
                                         <i/>
                                         <span className='ml-4'>forgot password</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </form>
