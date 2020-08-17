@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/screens/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +71,23 @@
       <recent name="$PROJECT_DIR$/client/src/assets" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="client-install" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="client-install" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.client-install" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -88,7 +108,7 @@
       <workItem from="1597300659530" duration="815000" />
       <workItem from="1597389630346" duration="387000" />
       <workItem from="1597390068301" duration="626000" />
-      <workItem from="1597637279304" duration="8379000" />
+      <workItem from="1597637279304" duration="9217000" />
     </task>
     <servers />
   </component>
@@ -123,6 +143,22 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="738" y="282" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.970@0.23.1680.970" timestamp="1597637937930" />
+    <state width="876" height="243" key="GridCell.Tab.0.bottom" timestamp="1597646003816">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state width="876" height="243" key="GridCell.Tab.0.bottom/0.23.1680.970@0.23.1680.970" timestamp="1597646003816" />
+    <state width="876" height="243" key="GridCell.Tab.0.center" timestamp="1597646003816">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state width="876" height="243" key="GridCell.Tab.0.center/0.23.1680.970@0.23.1680.970" timestamp="1597646003816" />
+    <state width="876" height="243" key="GridCell.Tab.0.left" timestamp="1597646003816">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state width="876" height="243" key="GridCell.Tab.0.left/0.23.1680.970@0.23.1680.970" timestamp="1597646003816" />
+    <state width="876" height="243" key="GridCell.Tab.0.right" timestamp="1597646003816">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state width="876" height="243" key="GridCell.Tab.0.right/0.23.1680.970@0.23.1680.970" timestamp="1597646003816" />
     <state x="505" y="246" width="670" height="676" key="search.everywhere.popup" timestamp="1597041697387">
       <screen x="0" y="23" width="1680" height="970" />
     </state>

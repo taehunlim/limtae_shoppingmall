@@ -43,7 +43,7 @@ router.post('/register', validSignUp, (req, res) => {
             .exec((err, user) => {
                 if(user) {
                     return res.status(400).json({
-                        msg : "The email already exists"
+                        errors : "The email already exists"
                     });
                 }
                 else {

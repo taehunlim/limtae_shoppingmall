@@ -24,7 +24,36 @@ const Register = () => {
         e.preventDefault();
         if( name && email && password1 ) {
             if(password1 === password2) {
-
+                setFormData({...formData, textChange: 'submitting'})
+                axios
+                    .post('http://localhost:5000/auth/register', {
+                        name,
+                        email,
+                        password: password1
+                    })
+                    .then(res => {
+                        setFormData({
+                            ...formData,
+                            name: '',
+                            email: '',
+                            password1: '',
+                            password2: '',
+                            textChange: 'submitted'
+,                        })
+                        toast.success(res.data.message)
+                    })
+                    .catch(err => {
+                        setFormData({
+                            ...formData,
+                            name: '',
+                            email: '',
+                            password1: '',
+                            password2: '',
+                            textChange: 'Sign up'
+                        });
+                        console.log(err)
+                        toast.error(err.response.data.errors)
+                    })
             }
             else {
                 toast.error('password do not matches')
