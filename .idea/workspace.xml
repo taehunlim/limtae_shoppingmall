@@ -20,10 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/serviceWorker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +87,18 @@
       <option name="presentableId" value="Default" />
       <updated>1597039705480</updated>
       <workItem from="1597039707360" duration="1540000" />
-      <workItem from="1597041314104" duration="8750000" />
+      <workItem from="1597041314104" duration="8777000" />
+      <workItem from="1597127045488" duration="15000" />
+      <workItem from="1597133933113" duration="1177000" />
+      <workItem from="1597220358211" duration="206000" />
+      <workItem from="1597227109503" duration="5000" />
+      <workItem from="1597227559103" duration="5000" />
+      <workItem from="1597227656115" duration="1987000" />
+      <workItem from="1597299945800" duration="10000" />
+      <workItem from="1597300659530" duration="815000" />
+      <workItem from="1597389630346" duration="387000" />
+      <workItem from="1597390068301" duration="626000" />
+      <workItem from="1597637279304" duration="604000" />
     </task>
     <servers />
   </component>
