@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/screens/ForgotPassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/screens/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/screens/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/screens/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +81,7 @@
       <workItem from="1597300659530" duration="815000" />
       <workItem from="1597389630346" duration="387000" />
       <workItem from="1597390068301" duration="626000" />
-      <workItem from="1597637279304" duration="3125000" />
+      <workItem from="1597637279304" duration="4304000" />
     </task>
     <servers />
   </component>
