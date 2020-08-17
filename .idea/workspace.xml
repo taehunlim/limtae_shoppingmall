@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/screens/ForgotPassword.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/screens/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/screens/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +87,7 @@
       <workItem from="1597300659530" duration="815000" />
       <workItem from="1597389630346" duration="387000" />
       <workItem from="1597390068301" duration="626000" />
-      <workItem from="1597637279304" duration="2344000" />
+      <workItem from="1597637279304" duration="3125000" />
     </task>
     <servers />
   </component>
@@ -110,10 +114,10 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="304" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.970@0.23.1680.970" timestamp="1597043396895" />
-    <state x="584" y="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597040534727">
+    <state x="584" y="308" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597639825604">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
-    <state x="584" y="308" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1597040534727" />
+    <state x="584" y="308" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1597639825604" />
     <state x="738" y="282" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597637937930">
       <screen x="0" y="23" width="1680" height="970" />
     </state>

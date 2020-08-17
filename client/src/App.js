@@ -22,40 +22,40 @@ function App() {
                               </div>
                           </div>
                           <div className="mx-auto max-w-xs relative">
-                              <a
+                              <Link
                                   to='/login'
                                   className='mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                               >
                                   <i className='fas fa-sign-in-alt  w-6  -ml-2' />
                                   <span className='ml-3'>Sign In</span>
-                              </a>
+                              </Link>
                           </div>
                           <div className="mx-auto max-w-xs relative">
-                              <a
+                              <Link
                                   to='/register'
                                   className='mt-5 tracking-wide font-semibold bg-gray-500 text-gray-100 w-full py-4 rounded-lg hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                               >
                                   <i className='fas fa-user-plus  w-6  -ml-2' />
                                   <span className='ml-3'>Register</span>
-                              </a>
+                              </Link>
                           </div>
                           <div className="mx-auto max-w-xs relative">
-                              <a
+                              <Link
                                   to='/private'
                                   className='mt-5 tracking-wide font-semibold bg-orange-500 text-gray-100 w-full py-4 rounded-lg hover:bg-orange-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                               >
                                   <i className='fas fa-sign-in-alt  w-6  -ml-2' />
                                   <span className='ml-3'>Profile dashboard</span>
-                              </a>
+                              </Link>
                           </div>
                           <div className="mx-auto max-w-xs relative">
-                              <a
+                              <Link
                                   to='/admin'
                                   className='mt-5 tracking-wide font-semibold bg-green-500 text-gray-100 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                               >
                                   <i className='fas fa-sign-in-alt  w-6  -ml-2' />
                                   <span className='ml-3'>Admin dashboard</span>
-                              </a>
+                              </Link>
                           </div>
                       </div>
                   </div>
