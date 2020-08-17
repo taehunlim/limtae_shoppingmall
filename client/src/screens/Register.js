@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import authSvg from '../assets/auth.svg'
 import axios from 'axios';
 import {ToastContainer} from 'react-toastify'
 import { Link, Redirect } from 'react-router-dom';
@@ -33,7 +34,7 @@ const Register = () => {
                             className='w-full flex-1 mt-8 text-indigo-500'
                             onSubmit={handleSubmit}
                         >
-                            <div className='mx-auth max-w-xs relative'>
+                            <div className='mx-auto max-w-xs relative'>
                                 <input
                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                     type='text'
@@ -86,6 +87,14 @@ const Register = () => {
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div className='flex-1 bg-indigo-100 text-center hidden lg:flex'>
+                    <div
+                        className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+                        style={{backgroundImage: `url(${authSvg})`}}
+                    >
+
                     </div>
                 </div>
             </div>
