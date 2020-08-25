@@ -8,9 +8,11 @@ const ForgotPassword = () => {
         textChange : 'Login'
     });
 
-    const {email, textChange} = formData
+    const {email, textChange} = formData;
 
-    const handleChange = text => e => {};
+    const handleChange = text => e => {
+        setFromData({...formData, [text]:e.target.value})
+    };
 
     const handleSubmit = e => {};
 
@@ -32,7 +34,8 @@ const ForgotPassword = () => {
                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                     type='email'
                                     placeholder="Email"
-                                    onChange={handleChange(email)}
+                                    onChange={handleChange('email')}
+                                    value={email}
                                 />
                                 <button
                                     type='submit'

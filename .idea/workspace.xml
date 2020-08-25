@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/screens/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +101,32 @@
       <workItem from="1597300659530" duration="815000" />
       <workItem from="1597389630346" duration="387000" />
       <workItem from="1597390068301" duration="626000" />
-      <workItem from="1597637279304" duration="9217000" />
+      <workItem from="1597637279304" duration="9765000" />
+      <workItem from="1597672229644" duration="1287000" />
+      <workItem from="1597733216284" duration="9033000" />
+      <workItem from="1597827958374" duration="591000" />
+      <workItem from="1597828936464" duration="96000" />
+      <workItem from="1597829076209" duration="23000" />
+      <workItem from="1597829689348" duration="232000" />
+      <workItem from="1597830263223" duration="17000" />
+      <workItem from="1597830749389" duration="1383000" />
+      <workItem from="1597909883948" duration="22000" />
+      <workItem from="1597914301514" duration="1532000" />
+      <workItem from="1597915941865" duration="538000" />
+      <workItem from="1597920135138" duration="389000" />
+      <workItem from="1598166756928" duration="44000" />
+      <workItem from="1598167154922" duration="169000" />
+      <workItem from="1598167430168" duration="99000" />
+      <workItem from="1598169116994" duration="146000" />
+      <workItem from="1598169577977" duration="1304000" />
+      <workItem from="1598173783287" duration="23000" />
+      <workItem from="1598174258516" duration="580000" />
+      <workItem from="1598176410164" duration="71000" />
+      <workItem from="1598177244954" duration="1021000" />
+      <workItem from="1598255419029" duration="115000" />
+      <workItem from="1598256980431" duration="1784000" />
+      <workItem from="1598261713915" duration="1236000" />
+      <workItem from="1598317847818" duration="1681000" />
     </task>
     <servers />
   </component>

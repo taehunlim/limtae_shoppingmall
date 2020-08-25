@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {ToastContainer, toast} from "react-toastify";
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 import loginSvg from '../assets/login.svg'
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
         textChange : 'Login'
     });
 
-    const {email, password, forgotPassword, textChange} = formData
+    const {email, password, forgotPassword, textChange} = formData;
 
     const handleChange = text => e => {
         setFromData({...formData, [text]: e.target.value})
@@ -21,7 +22,31 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         if( email && password ) {
-
+            setFromData({...formData, textChange: 'submitting'})
+            axios
+                .post('http://localhost:5000/auth/login', {
+                    email,
+                    password
+                })
+                .then(res => {
+                    setFromData({
+                        ...formData,
+                        email: '',
+                        password: '',
+                        textChange: "submitted"
+                    })
+                    toast.success(res.data.message)
+                })
+                .catch(err => {
+                    setFromData({
+                        ...formData,
+                        email: '',
+                        password: '',
+                        textChange: 'Login'
+                    });
+                    console.log(err)
+                    toast.error(err.response.data.errors)
+                })
         }
         else {
             toast.error('Please fill all fields')
@@ -83,13 +108,15 @@ const Login = () => {
                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                     type='email'
                                     placeholder='email'
-                                    onChange={handleChange(email)}
+                                    onChange={handleChange('email')}
+                                    value={email}
                                 />
                                 <input
                                     className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                     type='password'
                                     placeholder='password'
-                                    onChange={handleChange(password)}
+                                    onChange={handleChange('password')}
+                                    value={password}
                                 />
                                 <button
                                     type='submit'

@@ -173,6 +173,7 @@ router.post('/login', validLogin, (req, res) => {
 
                             res.status(200).json({
                                 user,
+                                message: 'successful login',
                                 token: tokenGenerator(
                                     { _id : user._id },
                                     process.env.JWT_SECRET,
