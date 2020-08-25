@@ -1,20 +1,57 @@
 import React, {useState} from 'react';
-import {ToastContainer} from 'react-toastify'
+import {ToastContainer, toast} from 'react-toastify'
 import forgotSvg from "../assets/forget.svg";
+import axios from 'axios'
 
-const ForgotPassword = () => {
-    const [formData, setFromData] = useState({
+const ForgotPassword = ({history}) => {
+    const [formData, setFormData] = useState({
         email : '',
-        textChange : 'Login'
+        textChange : 'Submit',
     });
 
     const {email, textChange} = formData;
 
     const handleChange = text => e => {
-        setFromData({...formData, [text]:e.target.value})
+        setFormData({...formData, [text]:e.target.value})
     };
 
-    const handleSubmit = e => {};
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        if( email ) {
+            setFormData({...formData, textChange: 'submitting'})
+
+            axios
+                .put('http://localhost:5000/auth/forgotpassword', {
+                    email
+                })
+                .then(res => {
+                    setFormData({
+                        ...formData,
+                        email : '',
+                        textChange: 'Submit'
+                    })
+                    toast.success(res.data.message, () => {
+                        history.push('/login')
+                    })
+                    // setTimeout(() => {
+                    //
+                    // }, 10000)
+
+                })
+                .catch(err => {
+                    setFormData({
+                        ...formData,
+                        name: '',
+                        email: '',
+                        password1: '',
+                        password2: '',
+                        textChange: 'Submit'
+                    });
+                    console.log(err)
+                })
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
@@ -42,7 +79,7 @@ const ForgotPassword = () => {
                                     className='mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                                 >
                                     <i className='fas fa-sign-in-alt fa 1x w-6  -ml-2' />
-                                    <span className="ml-3">Submit</span>
+                                    <span className="ml-3">{textChange}</span>
                                 </button>
                             </div>
                         </form>

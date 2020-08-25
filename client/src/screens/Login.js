@@ -3,6 +3,8 @@ import { isAuth } from '../helpers/auth'
 import {ToastContainer, toast} from "react-toastify";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { GoogleLogin } from 'react-google-login';
+import FaceBookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import loginSvg from '../assets/login.svg'
 
 const Login = ({history}) => {
@@ -19,6 +21,14 @@ const Login = ({history}) => {
     const handleChange = text => e => {
         setFromData({...formData, [text]: e.target.value})
     };
+
+    const responseGoogle = response => {
+        console.log(response)
+    }
+
+    const responseFacebook = response => {
+        console.log(response)
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -69,34 +79,56 @@ const Login = ({history}) => {
                             Sign in for here
                         </h1>
 
-                        <form
-                            className='w-full flex-1 mt-8 text-indigo-500'
-                            onSubmit={handleSubmit}
-                        >
-                            <div className='mx-auto max-w-xs relative'>
-                                <button
-                                    type='submit'
-                                    className='mt-5 tracking-wide font-semibold bg-gray-300 text-black w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
-                                >
-                                    <i className="fab fa-google 1x w-6 -ml-2"/>
-                                    <span className="ml-3">Sign in with Google</span>
-                                </button>
-                                <button
-                                    type='submit'
-                                    className='mt-5 tracking-wide font-semibold bg-gray-300 text-black w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
-                                >
-                                    <i className="fab fa-facebook-square 1x w-6 -ml-2"/>
-                                    <span className="ml-3">Sign in with Facebook</span>
-                                </button>
+                        <div className="w-full flex-1 mt-8 text-indigo-500">
+                            <div className='flex flex-col items-center'>
+                                <GoogleLogin
+                                    clientId='708727454454-ktgjf8o9d5g9acu51lrncihcti9pkasg.apps.googleusercontent.com'
+                                    onSuccess={responseGoogle}
+                                    onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                    render={renderProps => (
+                                        <button
+                                            className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline'
+                                            onClick={renderProps.onClick}
+                                            disabled={renderProps.disabled}
+                                        >
+                                            <div className="p-2 rounded-full">
+                                                <i className='fab fa-google'/>
+                                            </div>
+                                            <span className='ml-4'> Sign In with Google</span>
+                                        </button>
+                                    )}
+                                />
+
+                                <FaceBookLogin
+                                    appId={`368104864585822`}
+                                    autoLoad={false}
+                                    callback={responseFacebook}
+
+                                    render={renderProps => (
+                                        <button
+                                            onClick={renderProps.onClick}
+                                            className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
+                                        >
+                                            <div className="p-2 rounded-full">
+                                                <i className='fab fa-facebook'/>
+                                            </div>
+                                            <span className='ml-4'> Sign In with Facebook</span>
+                                        </button>
+                                    )}
+                                />
+
                                 <Link
+                                    className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
                                     to='/register'
-                                    className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-gray-300 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
                                 >
-                                    <i className="fas fa-user-plus fa 1x w-6 -ml-2"/>
-                                    <span className="ml-3">Sign up</span>
+                                    <i className='fas fa-user-plus fa 1x w-6  -ml-2 text-indigo-500' />
+                                    <span className='ml-4'>Sign Up</span>
                                 </Link>
+
                             </div>
-                        </form>
+                        </div>
+
 
                         <div className='my-12 border-t text-center'>
                             <div className='leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2'>

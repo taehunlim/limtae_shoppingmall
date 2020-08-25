@@ -17,11 +17,6 @@ const removeCookie = key => {
     }
 }
 
-export const getCookie = key => {
-    if(window !== 'undefined') {
-        return cookie.get(key)
-    }
-}
 
 export const setLocalStorage =  (key, value) => {
     if(window !== 'undefined') {
@@ -35,6 +30,12 @@ export const removeLocalStorage = (key) => {
     }
 }
 
+
+export const getCookie = key => {
+    if(window !== 'undefined') {
+        return cookie.get(key)
+    }
+}
 
 export const isAuth = () => {
     if(window !== 'undefined') {

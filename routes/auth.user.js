@@ -223,7 +223,7 @@ router.put('/forgotpassword', forgotPasswordValidator, (req, res) => {
                 return user.updateOne({ resetPasswordLink: token }, (err, success) => {
                     if(err) {
                         return res.status(400).json({
-                            error : 'Database connection error on user password forgot request'
+                            errors : 'Database connection error on user password forgot request'
                         });
                     }
                     else {
