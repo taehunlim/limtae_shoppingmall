@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { isAuth } from '../helpers/auth'
+import { isAuth, authenticate } from '../helpers/auth'
 import {ToastContainer, toast} from "react-toastify";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -23,8 +23,31 @@ const Login = ({history}) => {
     };
 
     const responseGoogle = response => {
-        console.log(response)
+        setGoogleToken(response.tokenId)
     }
+
+    const setGoogleToken = tokenId => {
+        axios
+            .post('http://localhost:5000/auth/googlelogin', {
+                idToken : tokenId
+            })
+            .then(res => {
+                console.log("google info =================", res)
+                informParent(res)
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
+    }
+
+    const informParent = response => {
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin'
+                ? history.push('/admin')
+                : history.push('/private');
+        });
+    };
+
 
     const responseFacebook = response => {
         console.log(response)

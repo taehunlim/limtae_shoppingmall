@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
+const { OAuth2Client } = require('google-auth-library')
 const sgMail = require('@sendgrid/mail');
 const _ = require('lodash');
 sgMail.setApiKey(process.env.MAIL_KEY)
@@ -303,6 +304,63 @@ router.put('/resetpassword', resetPasswordValidator, (req, res) => {
     }
 });
 
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT)
+
+// @route   POST http://localhost:5000/auth/googlelogin
+// @desc    Google Login
+// @access  Public
+router.post('/googlelogin', (req, res) => {
+
+    const { idToken } = req.body;
+
+    client
+        .verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT })
+        .then(response => {
+            console.log(response)
+
+            const { email_verified, name, email } = response.payload;
+
+            if(email_verified) {
+                userModel
+                    .findOne({email})
+                    .exec((err, user) => {
+                        if(user) {
+                            const token = jwt.sign(
+                                {_id: user._id},
+                                process.env.JWT_SECRET,
+                                {expiresIn: '7d'}
+                            );
+                            return res.json({
+                                token, user
+                            })
+                        }
+                    })
+            }
+            else {
+                let password = email + process.env.JWT_SECRET;
+
+                user = new userModel({name, email, password});
+                user
+                    .save((err, data) => {
+                        if(err) {
+                            return res.status(400).json({
+                                error : 'User sign up failed with google'
+                            })
+                        }
+                        else {
+                            const token = jwt.sign(
+                                {_id: user._id},
+                                process.env.JWT_SECRET,
+                                {expiresIn: '7d'}
+                            );
+                            return res.json({
+                                token, user
+                            })
+                        }
+                    })
+            }
+        })
+});
 
 module.exports = router;
 
