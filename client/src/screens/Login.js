@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
+import { isAuth } from '../helpers/auth'
 import {ToastContainer, toast} from "react-toastify";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import loginSvg from '../assets/login.svg'
 
-const Login = () => {
+const Login = ({history}) => {
 
     const [formData, setFromData] = useState({
         email : '',
@@ -35,7 +36,11 @@ const Login = () => {
                         password: '',
                         textChange: "submitted"
                     })
-                    toast.success(res.data.message)
+                    console.log('res data ----------', res)
+                    isAuth() && isAuth().role === 'admin'
+                    ? history.push('/admin')
+                    : history.push('/private')
+                    toast.success(`Hey ${res.data.user.name}, welcome back`)
                 })
                 .catch(err => {
                     setFromData({

@@ -6,6 +6,8 @@ import Register from "./screens/Register";
 import Login from "./screens/Login";
 import ForgotPassword from "./screens/ForgotPassword";
 import Activation from "./screens/Activation";
+import Private from "./screens/Private";
+import Admin from "./screens/Admin";
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -17,6 +19,9 @@ ReactDOM.render(
             <Route path='/register' exact render={props => <Register {...props}/>} />
             <Route path='/users/activate/:token' exact render={props => <Activation {...props}/>} />
             <Route path='/forgotpassword' exact render={props => <ForgotPassword {...props}/>} />
+            <Route path='/private' exact render={props => <Private {...props}/>} />
+            <Route path='/admin' exact render={props => <Admin {...props}/>} />
+
             <Redirect to='/' />
         </Switch>
     </BrowserRouter>,
