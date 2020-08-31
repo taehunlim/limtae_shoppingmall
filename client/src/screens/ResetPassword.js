@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import authSvg from '../assets/auth.svg'
 
-const ResetPassword = ({match}) => {
+const ResetPassword = ({match, history}) => {
 
     const [formData, setFormData] = useState({
         password1 : '',
@@ -45,6 +45,9 @@ const ResetPassword = ({match}) => {
                         textChange: 'completed change'
                     })
                     toast.success(res.data.message)
+                    window.setTimeout(() => {
+                        history.push('/login')
+                    }, 5500)
                 })
                 .catch(err => {
                     toast.error("Something is wrong try again")
@@ -92,7 +95,7 @@ const ResetPassword = ({match}) => {
                                     className='mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                                 >
                                     <i className="fas fa-sign-in-alt w-6 -ml-2"/>
-                                    <span className="ml-3">Submit</span>
+                                    <span className="ml-3">{textChange}</span>
                                 </button>
                             </form>
                         </div>

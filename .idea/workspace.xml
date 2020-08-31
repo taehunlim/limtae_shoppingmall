@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/screens/Private.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Private.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/screens/ResetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/ResetPassword.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +149,7 @@
       <workItem from="1598785964207" duration="18000" />
       <workItem from="1598797065005" duration="91000" />
       <workItem from="1598850469542" duration="30000" />
-      <workItem from="1598850507655" duration="5231000" />
+      <workItem from="1598850507655" duration="7407000" />
     </task>
     <servers />
   </component>
