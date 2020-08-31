@@ -316,7 +316,7 @@ router.post('/googlelogin', (req, res) => {
     client
         .verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT })
         .then(response => {
-            console.log(response)
+
 
             const { email_verified, name, email } = response.payload;
 
@@ -353,6 +353,9 @@ router.post('/googlelogin', (req, res) => {
                                 process.env.JWT_SECRET,
                                 {expiresIn: '7d'}
                             );
+
+                            console.log(token, user)
+
                             return res.json({
                                 token, user
                             })
@@ -361,6 +364,24 @@ router.post('/googlelogin', (req, res) => {
             }
         })
 });
+
+
+// @route   POST http://localhost:5000/auth/facebooklogin
+// @desc    Facebook Login
+// @access  Public
+router.post('/facebooklogin', (req, res) => {
+
+    const {userId, accessToken} = req.body;
+
+    const url = `https://graph.facebook.com/v2.11/${userId}/?fields=id,name,email&access_token=${accessToken}`;
+
+    return (
+        fetch(url, {method: 'GET'})
+            .then(response => console.log('sdkdjdkd===========', response))
+            .then(res => console.log(res))
+            .catch(err => console.log(err.message))
+    )
+})
 
 module.exports = router;
 

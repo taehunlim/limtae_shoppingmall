@@ -40,6 +40,34 @@ const Login = ({history}) => {
             })
     }
 
+    const sendFacebookToken = (userId, accessToken) => {
+        axios
+            .post(`http://localhost:5000/auth/facebooklogin`, {
+                userId,
+                accessToken
+            })
+            .then(res => {
+                console.log(res.data);
+                informParent(res);
+            })
+            .catch(error => {
+                console.log('FACEBOOK SIGNIN ERROR', error.response);
+            });
+    };
+    //
+    // const sendFacebookToken = (userId, accessToken)  => {
+    //     axios
+    //         .post('http://localhost:5000/auth/facebooklogin', {
+    //             userId, accessToken
+    //         })
+    //         .then(res => {
+    //             console.log('facebook ========> ', res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log('Facebook Sign Error', err.response)
+    //         })
+    // }
+
     const informParent = response => {
         authenticate(response, () => {
             isAuth() && isAuth().role === 'admin'
@@ -50,7 +78,8 @@ const Login = ({history}) => {
 
 
     const responseFacebook = response => {
-        console.log(response)
+        console.log("sdasdasdasd===================", response)
+        sendFacebookToken(response.userId, response.accessToken)
     }
 
     const handleSubmit = e => {

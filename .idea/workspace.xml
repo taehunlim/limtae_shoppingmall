@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="" />
+    <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/screens/ResetPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +132,26 @@
       <workItem from="1598255419029" duration="115000" />
       <workItem from="1598256980431" duration="1784000" />
       <workItem from="1598261713915" duration="1236000" />
-      <workItem from="1598317847818" duration="9731000" />
+      <workItem from="1598317847818" duration="10082000" />
+      <workItem from="1598337493847" duration="2866000" />
+      <workItem from="1598428430692" duration="527000" />
+      <workItem from="1598429264585" duration="1171000" />
+      <workItem from="1598431229338" duration="10000" />
+      <workItem from="1598431283913" duration="18000" />
+      <workItem from="1598431357372" duration="29000" />
+      <workItem from="1598431777743" duration="3493000" />
+      <workItem from="1598449163494" duration="170000" />
+      <workItem from="1598513164467" duration="4004000" />
+      <workItem from="1598523376472" duration="1431000" />
+      <workItem from="1598601656617" duration="3000" />
+      <workItem from="1598602270600" duration="4418000" />
+      <workItem from="1598705584949" duration="117000" />
+      <workItem from="1598770982777" duration="8000" />
+      <workItem from="1598771423144" duration="2000" />
+      <workItem from="1598785964207" duration="18000" />
+      <workItem from="1598797065005" duration="91000" />
+      <workItem from="1598850469542" duration="30000" />
+      <workItem from="1598850507655" duration="4678000" />
     </task>
     <servers />
   </component>
@@ -177,9 +202,21 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state width="876" height="243" key="GridCell.Tab.0.right/0.23.1680.970@0.23.1680.970" timestamp="1597646003816" />
-    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup" timestamp="1597041697387">
+    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup" timestamp="1598339596207">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
-    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1597041697387" />
+    <state x="505" y="246" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1598339596207" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes/auth.user.js</url>
+          <line>385</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
