@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {ToastContainer} from 'react-toastify'
+import {toast, ToastContainer} from 'react-toastify'
+import axios from 'axios';
 
 import authSvg from '../assets/auth.svg'
 
-const ResetPassword = () => {
+const ResetPassword = ({match}) => {
 
     const [formData, setFormData] = useState({
         password1 : '',
@@ -11,6 +12,13 @@ const ResetPassword = () => {
         token: '',
         textChange : 'Submit'
     })
+
+    useEffect(() => {
+        let token = match.params.token;
+        if(token) {
+            setFormData({...formData, token})
+        }
+    }, [])
 
     const { password2, password1, textChange, token } = formData;
 
@@ -20,6 +28,33 @@ const ResetPassword = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        if(password1 === password2 && password1 && password2) {
+            setFormData({...formData, textChange: "Submitting"})
+
+            axios
+                .put('http://localhost:5000/auth/resetpassword', {
+                    newPassword: password1,
+                    resetPasswordLink: token
+                })
+                .then(res => {
+                    console.log(res.data.message)
+                    setFormData({
+                        ...formData,
+                        password1: '',
+                        password2: '',
+                        textChange: 'completed change'
+                    })
+                    toast.success(res.data.message)
+                })
+                .catch(err => {
+                    toast.error("Something is wrong try again")
+                })
+        }
+        else {
+            toast.error('password dose not matches')
+        }
+
+        console.log(token, password1)
     };
 
 
