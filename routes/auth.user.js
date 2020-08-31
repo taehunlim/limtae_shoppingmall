@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
 const { validationResult } = require('express-validator');
 const { OAuth2Client } = require('google-auth-library')
 const sgMail = require('@sendgrid/mail');
@@ -13,6 +14,11 @@ const userModel = require('../models/auth.model');
 const {
     validSignUp, validLogin, forgotPasswordValidator, resetPasswordValidator
 } = require('../config/validation');
+
+
+const requireSignIn = expressJwt({
+    secret: process.env.JWT_SECRET, algorithms: ['HS256']
+})
 
 
 const tokenGenerator = (payload, secret, time) => {
@@ -382,6 +388,34 @@ router.post('/facebooklogin', (req, res) => {
             .catch(err => console.log(err.message))
     )
 })
+
+
+// @route   GET http://localhost:5000/auth/user/:id
+// @desc    Get user profile data
+// @access  Private
+router.get('/user/:id', requireSignIn, (req, res) => {
+
+    const userId = req.params.id;
+
+    console.log('user.id', userId)
+    userModel
+        .findById(userId)
+        .exec((err, user) => {
+            console.log(user)
+            if(err || !user) {
+                return res.status(400).json({
+                    error: 'user not found'
+                })
+            }
+            else {
+                user.hashed_password = undefined;
+                res.status(200).json(user)
+            }
+    })
+
+})
+
+
 
 module.exports = router;
 

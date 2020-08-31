@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { isAuth, authenticate } from '../helpers/auth'
+import { isAuth, authenticate, setCookie } from '../helpers/auth'
 import {ToastContainer, toast} from "react-toastify";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -92,17 +92,20 @@ const Login = ({history}) => {
                     password
                 })
                 .then(res => {
-                    setFromData({
-                        ...formData,
-                        email: '',
-                        password: '',
-                        textChange: "submitted"
+                    authenticate(res, () => {
+                        setFromData({
+                            ...formData,
+                            email: '',
+                            password: '',
+                            textChange: "submitted"
+                        })
+                        // setCookie('token', res.data.token)
+                        console.log('res data ----------', res)
+                        isAuth() && isAuth().role === 'admin'
+                            ? history.push('/admin')
+                            : history.push('/private')
+                        toast.success(`Hey ${res.data.user.name}, welcome back`)
                     })
-                    console.log('res data ----------', res)
-                    isAuth() && isAuth().role === 'admin'
-                    ? history.push('/admin')
-                    : history.push('/private')
-                    toast.success(`Hey ${res.data.user.name}, welcome back`)
                 })
                 .catch(err => {
                     setFromData({

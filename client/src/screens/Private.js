@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 import authSvg from '../assets/update.svg'
+import {getCookie} from "../helpers/auth";
+import {isAuth} from '../helpers/auth'
 
 const Private = () => {
 
@@ -25,8 +28,26 @@ const Private = () => {
     };
 
     const loadProfile = () => {
-
-    }
+        const token = getCookie('token');
+        axios
+            .get(`http://localhost:5000/auth/user/${isAuth()._id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                const { role, name, email } = res.data;
+                setFormDate({ ...formData, role, name, email });
+            })
+            .catch(err => {
+                toast.error(`Error To Your Information ${err.response.statusText}`);
+                if (err.response.status === 401) {
+                    // signout(() => {
+                    //     history.push('/login');
+                    // });
+                }
+            });
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
