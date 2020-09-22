@@ -9,23 +9,27 @@ import Activation from "./screens/Activation";
 import Private from "./screens/Private";
 import Admin from "./screens/Admin";
 import ResetPassword from "./screens/ResetPassword";
+import store from "../store";
+import {Provider} from 'react-redux';
 
 import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route path='/' exact render={props => <App {...props}/>} />
-            <Route path='/login' exact render={props => <Login {...props}/>} />
-            <Route path='/register' exact render={props => <Register {...props}/>} />
-            <Route path='/users/activate/:token' exact render={props => <Activation {...props}/>} />
-            <Route path='/forgotpassword' exact render={props => <ForgotPassword {...props}/>} />
-            <Route path='/private' exact render={props => <Private {...props}/>} />
-            <Route path='/admin' exact render={props => <Admin {...props}/>} />
-            <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' exact render={props => <App {...props}/>} />
+                <Route path='/login' exact render={props => <Login {...props}/>} />
+                <Route path='/register' exact render={props => <Register {...props}/>} />
+                <Route path='/users/activate/:token' exact render={props => <Activation {...props}/>} />
+                <Route path='/forgotpassword' exact render={props => <ForgotPassword {...props}/>} />
+                <Route path='/private' exact render={props => <Private {...props}/>} />
+                <Route path='/admin' exact render={props => <Admin {...props}/>} />
+                <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
 
-            <Redirect to='/' />
-        </Switch>
-    </BrowserRouter>,
+                <Redirect to='/' />
+            </Switch>
+        </BrowserRouter>
+    </Provider>,
   document.getElementById('root')
 );

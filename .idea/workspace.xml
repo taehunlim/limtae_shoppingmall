@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4653e40b-8628-47fd-bbef-e96d2f19164f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/reducers/authReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/screens/Private.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/screens/Private.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -153,6 +155,42 @@
       <workItem from="1598797065005" duration="91000" />
       <workItem from="1598850469542" duration="30000" />
       <workItem from="1598850507655" duration="11367000" />
+      <workItem from="1598865157822" duration="130000" />
+      <workItem from="1598941365135" duration="9000" />
+      <workItem from="1598945186812" duration="186000" />
+      <workItem from="1598945632365" duration="4096000" />
+      <workItem from="1599041445712" duration="1112000" />
+      <workItem from="1599190938818" duration="4352000" />
+      <workItem from="1599205602674" duration="1350000" />
+      <workItem from="1599210915878" duration="456000" />
+      <workItem from="1599220730918" duration="335000" />
+      <workItem from="1599294847876" duration="165000" />
+      <workItem from="1599295583320" duration="20000" />
+      <workItem from="1599295661617" duration="189000" />
+      <workItem from="1599296200791" duration="486000" />
+      <workItem from="1599302208458" duration="1699000" />
+      <workItem from="1599314682832" duration="526000" />
+      <workItem from="1599316576034" duration="9000" />
+      <workItem from="1599374637140" duration="55000" />
+      <workItem from="1599374849196" duration="24000" />
+      <workItem from="1599375224762" duration="768000" />
+      <workItem from="1599389858281" duration="152000" />
+      <workItem from="1599637456773" duration="38000" />
+      <workItem from="1599647437880" duration="16000" />
+      <workItem from="1599734727584" duration="79000" />
+      <workItem from="1599734835507" duration="9000" />
+      <workItem from="1599895297688" duration="29000" />
+      <workItem from="1600075706707" duration="2000" />
+      <workItem from="1600082841275" duration="4681000" />
+      <workItem from="1600147946006" duration="186000" />
+      <workItem from="1600148464591" duration="422000" />
+      <workItem from="1600239866249" duration="6309000" />
+      <workItem from="1600319163652" duration="8000" />
+      <workItem from="1600323852743" duration="835000" />
+      <workItem from="1600430419645" duration="874000" />
+      <workItem from="1600511932913" duration="652000" />
+      <workItem from="1600763916373" duration="720000" />
+      <workItem from="1600764680516" duration="2410000" />
     </task>
     <servers />
   </component>
@@ -251,6 +289,10 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state width="955" height="301" key="GridCell.Tab.3.right/0.23.1680.970@0.23.1680.970" timestamp="1598862549400" />
+    <state x="71" y="240" width="602" height="522" key="find.popup" timestamp="1600242217116">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="71" y="240" width="602" height="522" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1600242217116" />
     <state x="505" y="246" width="670" height="676" key="search.everywhere.popup" timestamp="1598860060074">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
@@ -262,7 +304,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/auth.user.js</url>
           <line>419</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

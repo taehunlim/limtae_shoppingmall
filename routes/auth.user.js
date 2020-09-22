@@ -411,7 +411,7 @@ router.get('/user/:id', requireSignIn, (req, res) => {
                 user.hashed_password = undefined;
                 res.status(200).json(user)
             }
-    })
+        })
 
 })
 
