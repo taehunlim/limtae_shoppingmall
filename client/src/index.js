@@ -9,7 +9,7 @@ import Activation from "./screens/Activation";
 import Private from "./screens/Private";
 import Admin from "./screens/Admin";
 import ResetPassword from "./screens/ResetPassword";
-import store from "../store";
+import store from './store';
 import {Provider} from 'react-redux';
 
 import 'react-toastify/dist/ReactToastify.css'

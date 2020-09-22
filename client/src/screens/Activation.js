@@ -4,8 +4,12 @@ import activationSvg from '../assets/welcome.svg'
 import {Link, Redirect} from "react-router-dom";
 import axios from 'axios';
 import jwt from 'jsonwebtoken'
+import { withRouter } from 'react-router-dom';
+import {registerUser} from '../actions/authActions';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types'
 
-const Activation = ({match}) => {
+const Activation = (props) => {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -14,7 +18,7 @@ const Activation = ({match}) => {
     });
 
     useEffect(() => {
-        let token = match.params.token;
+        let token = props.match.params.token;
         let { name } = jwt.decode(token);
 
         if (token) {
@@ -22,26 +26,26 @@ const Activation = ({match}) => {
         }
 
         console.log(token, name);
-    }, [match.params]);
+    }, [props.match.params]);
     const { name, token, show } = formData;
 
     const handleSubmit = e => {
         e.preventDefault();
-
-        axios
-            .post(`http://localhost:5000/auth/activation`, {
-                token
-            })
-            .then(res => {
-                setFormData({
-                    ...formData,
-                    show: false
-                });
-                toast.success(res.data.message);
-            })
-            .catch(err => {
-                toast.error(err.response.data.errors);
-            });
+        props.registerUser({token}, props.history)
+        // axios
+        //     .post(`http://localhost:5000/auth/activation`, {
+        //         token
+        //     })
+        //     .then(res => {
+        //         setFormData({
+        //             ...formData,
+        //             show: false
+        //         });
+        //         toast.success(res.data.message);
+        //     })
+        //     .catch(err => {
+        //         toast.error(err.response.data.errors);
+        //     });
     };
 
 
@@ -104,4 +108,16 @@ const Activation = ({match}) => {
     );
 };
 
-export default Activation;
+// Activation.propTypes = {
+//     registerUser: PropTypes.func.isRequired,
+//     auth: PropTypes.object.isRequired,
+//     errors: PropTypes.object.isRequired
+// }
+//
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, {registerUser})(withRouter(Activation))

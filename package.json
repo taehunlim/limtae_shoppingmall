@@ -28,6 +28,7 @@
     "lodash": "^4.17.19",
     "mongoose": "^5.9.28",
     "morgan": "^1.10.0",
+    "prop-types": "^15.7.2",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
