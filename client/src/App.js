@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import {connect} from 'react-redux';
 
 import './App.css';
 
-function App() {
+const App = (props) => {
+
+    useEffect(() => {
+        if(localStorage.jwtToken) {
+            props.history.push('/private')
+        }
+    })
+
   return (
       <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
           <ToastContainer />
