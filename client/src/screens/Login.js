@@ -6,8 +6,10 @@ import axios from 'axios'
 import { GoogleLogin } from 'react-google-login';
 import FaceBookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import loginSvg from '../assets/login.svg'
+import {connect} from 'react-redux';
+import {loginUser} from '../actions/authActions';
 
-const Login = ({history}) => {
+const Login = (props) => {
 
     const [formData, setFromData] = useState({
         email : '',
@@ -71,8 +73,8 @@ const Login = ({history}) => {
     const informParent = response => {
         authenticate(response, () => {
             isAuth() && isAuth().role === 'admin'
-                ? history.push('/admin')
-                : history.push('/private');
+                ? props.history.push('/admin')
+                : props.history.push('/private');
         });
     };
 
@@ -84,43 +86,49 @@ const Login = ({history}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if( email && password ) {
-            setFromData({...formData, textChange: 'submitting'})
-            axios
-                .post('http://localhost:5000/auth/login', {
-                    email,
-                    password
-                })
-                .then(res => {
-                    authenticate(res, () => {
-                        setFromData({
-                            ...formData,
-                            email: '',
-                            password: '',
-                            textChange: "submitted"
-                        })
-                        // setCookie('token', res.data.token)
-                        console.log('res data ----------', res)
-                        isAuth() && isAuth().role === 'admin'
-                            ? history.push('/admin')
-                            : history.push('/private')
-                        toast.success(`Hey ${res.data.user.name}, welcome back`)
-                    })
-                })
-                .catch(err => {
-                    setFromData({
-                        ...formData,
-                        email: '',
-                        password: '',
-                        textChange: 'Login'
-                    });
-                    console.log(err)
-                    toast.error(err.response.data.errors)
-                })
-        }
-        else {
-            toast.error('Please fill all fields')
-        }
+
+        props.loginUser({email, password})
+
+        isAuth() && isAuth().role === 'admin'
+            ? props.history.push('/admin')
+            : props.history.push('/private')
+        // if( email && password ) {
+        //     setFromData({...formData, textChange: 'submitting'})
+        //     axios
+        //         .post('http://localhost:5000/auth/login', {
+        //             email,
+        //             password
+        //         })
+        //         .then(res => {
+        //             authenticate(res, () => {
+        //                 setFromData({
+        //                     ...formData,
+        //                     email: '',
+        //                     password: '',
+        //                     textChange: "submitted"
+        //                 })
+        //                 // setCookie('token', res.data.token)
+        //                 console.log('res data ----------', res)
+        //                 isAuth() && isAuth().role === 'admin'
+        //                     ? history.push('/admin')
+        //                     : history.push('/private')
+        //                 toast.success(`Hey ${res.data.user.name}, welcome back`)
+        //             })
+        //         })
+        //         .catch(err => {
+        //             setFromData({
+        //                 ...formData,
+        //                 email: '',
+        //                 password: '',
+        //                 textChange: 'Login'
+        //             });
+        //             console.log(err)
+        //             toast.error(err.response.data.errors)
+        //         })
+        // }
+        // else {
+        //     toast.error('Please fill all fields')
+        // }
     };
 
 
@@ -242,4 +250,9 @@ const Login = ({history}) => {
     );
 };
 
-export default Login;
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, {loginUser})(Login);
